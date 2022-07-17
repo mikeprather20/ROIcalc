@@ -1,5 +1,3 @@
-from decimal import Decimal
-from re import S
 print('=====================================================')
 print('Welcome to the ROI (Return on Investment) Calculator!')
 print('=====================================================\n')
@@ -36,8 +34,7 @@ repairs = int(input('Repair Expense: $'))
 capEx = int(input('CapEx Expense: $'))
 propmang = int(input('Property Management Expense: $'))
 mortgage = int(input('Mortgage Expense: $'))
-monthly_expenses = int(tax + ins + electric + waterAsewer + garbage +
-                       gas + hoa + lawnAsnow + vacancy + repairs + capEx + propmang + mortgage)
+monthly_expenses = tax + ins + electric + waterAsewer + garbage + gas + hoa + lawnAsnow + vacancy + repairs + capEx + propmang + mortgage
 print(f'\nYour Total Monthly Expenses = ${monthly_expenses}')
 
 print('\n==================================')
