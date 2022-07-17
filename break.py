@@ -71,3 +71,29 @@ while True:
         enter3 = input('To exit please type (x): ')
     else:
         exit
+
+    def returnRoi(self):
+
+        print('\n==========================================')
+        print('CALCULATING YOUR ROI (RETURN ON INVESTMENT)!')
+        print('==========================================')
+        try:
+            roi = float(self.annual_cash_flow / self.total_invest)*100
+            print(f'\n[[[[Your ROI (Return on Investment) is: {roi}%]]]]\n')
+            break
+        except ZeroDivisionError:
+            print(f'\n[[[[Your ROI (Return on Investment) is: {roi}%]]]]\n')
+            continue
+
+
+                    
+        try:
+            misc_other = int(input('Misc Other Cost: $'))
+            break
+        except ValueError:
+            print('Please only use a whole number.')
+            continue
+
+
+        roi = float(self.annual_cash_flow / self.total_invest)*100
+        print(f'\n[[[[Your ROI (Return on Investment) is: {roi}%]]]]\n')

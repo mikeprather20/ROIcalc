@@ -56,7 +56,7 @@ class Calculator():
                 continue
 
         self.monthly_income = rent + laundry + storage + misc
-        print(f'[[[[Your Total Monthly Income = ${self.monthly_income}]]]]')
+        print(f'\n[[[[Your Total Monthly Income = ${self.monthly_income}]]]]')
 
 
     def expenses(self):
@@ -161,7 +161,6 @@ class Calculator():
                 print('Please only use a whole number.')
                 continue
 
-        mortgage = int(input('Mortgage Expense: $'))
         while True:
             try:
                 mortgage = int(input('Mortgage Expense: $'))
@@ -227,14 +226,36 @@ class Calculator():
         print(f'\n[[[[Your Total Investment is: ${self.total_invest}]]]]')
 
 
+    def homeWorkIsNotFree(self):
+
+        print('\n===============')
+        print('PAYMENT DETAILS')
+        print('===============')
+        print('\n-Payment is due by EOD after use.')
+        print('-I accept Cash, Personal Checks, and Pay-Pal.')
+        print('-Thank you for choosing my calculator for you buisiness needs!')
+
+        enter4 = input('\nTo see your ROI calculation, type (cont): ').lower()
+
+        while enter4 != 'cont':
+            print('Invalid Input!\n')
+            enter4 = input('To see your ROI calculation, type (start): ').lower()
+
+
     def returnRoi(self):
 
         print('\n==========================================')
         print('CALCULATING YOUR ROI (RETURN ON INVESTMENT)!')
         print('==========================================')
 
-        roi = float(self.annual_cash_flow / self.total_invest)*100
-        print(f'\n[[[[Your ROI (Return on Investment) is: {roi}%]]]]\n')
+        while True:
+            try:
+                roi = float(self.annual_cash_flow / self.total_invest)*100
+                print(f'\n[[[[Your ROI (Return on Investment) is: {roi}%]]]]\n')
+                break
+            except ZeroDivisionError:
+                print(f'\n[[[[Your ROI (Return on Investment) is: 0%]]]]\n')
+                break
 
 
 def calcRoi():
@@ -244,7 +265,10 @@ def calcRoi():
 
     while keep_looping == True:
 
-        print('\nDo you want to calculate the ROI on your new property, for the low amount of $100.00 !?')
+        print('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+        print('Do you want to calculate the ROI on your new property, for the low amount of $100.00!?')
+        print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+        print('\n**By typing yes you are agreeing to the amount stated above per calculation.**')
         greeting = input('Enter (yes) or (no): ').lower()
 
         if greeting != 'no':
@@ -253,9 +277,10 @@ def calcRoi():
             property.expenses()
             property.a_cashflow()
             property.investment()
+            property.homeWorkIsNotFree()
             property.returnRoi()
         else:
-            enter3 = input('Maybe next time! Please type (exit) to leave: ').lower()
+            enter3 = input('\nMaybe next time! Please type (exit) to leave: ').lower()
 
             if enter3 != 'exit':
                 print('Invalid Input!\n')
